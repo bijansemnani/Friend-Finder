@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(route);
 app.use(api);
+app.use('/', express.static('app/jsFiles'));
 
 // Starts the server to begin listening
 // =============================================================
