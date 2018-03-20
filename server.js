@@ -16,15 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(route);
 
-app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "app/public/survey.html"));
-});
-
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "app/public/home.html"));
-});
-
-
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
