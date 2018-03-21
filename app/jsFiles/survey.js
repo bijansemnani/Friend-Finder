@@ -4,10 +4,12 @@ $(document).ready(function () {
   function reset() {
     $("#name").val(" ");
     $("#photo").val(" ");
+
     for (var i = 1; i < 11; i++) {
       var q = "#q" + i;
       $(q).val('').trigger("chosen:updated");
     }
+    
   }
 
   $("#submit").on("click", function () {
@@ -16,11 +18,13 @@ $(document).ready(function () {
       photo: $("#photo").val().trim(),
       scores:[]
     };
+
     for (var i = 1; i < 11; i++) {
       var q = parseInt($("#q"+i).val().trim());
       console.log(q);
       newFriend.scores.push(q)
     }
+
     reset();
     $.post("/api/friends", newFriend)
     .then(function (data) {
