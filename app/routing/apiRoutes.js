@@ -12,25 +12,25 @@ app.post("/api/friends", function(req, res) {
   // This works because of our body-parser middleware
   var newFriend = req.body;
   var bestFriend;
-  console.log(friends[0].score.length);
-  console.log(newFriend.scores);
+  console.log(friends);
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   var bestScore = Math.pow(10, 1000);
   for (var i = 0; i < friends.length; i++) {
     var score = 0
     for (var j = 0; j < newFriend.scores.length; j++) {
-       console.log(newFriend.scores[j]);
-       score += Math.abs(friends[i].score[j] - parseInt(newFriend.scores[j]));
+       if(newFriend.scores[j] === 'NaN'){
+        newFriend.scores[j] = 0;
+      }
+       score += Math.abs(friends[i].scores[j] - parseInt(newFriend.scores[j]));
+       console.log(score);
       if(score < bestScore){
-        console.log(score);
         bestFriend = friends[i];
         bestScore = score;
       }
     }
   }
-  console.log(newFriend);
-
+  console.log("best:" + bestScore);
   friends.push(newFriend);
 
   res.json(bestFriend);

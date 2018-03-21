@@ -1,7 +1,7 @@
 var friends = [
   {
     name: "test",
-    score:[
+    scores:[
       1,
       2,
       3,
@@ -10,8 +10,8 @@ var friends = [
       2,
       1,
       5,
-      6,
-      7
+      2,
+      4
     ]
   }
 ];
