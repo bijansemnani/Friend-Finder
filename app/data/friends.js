@@ -1,6 +1,7 @@
 var friends = [
   {
-    name: "test",
+    name: "Bijan",
+    photo: "/IMG_0897.jpg",
     scores:[
       1,
       2,

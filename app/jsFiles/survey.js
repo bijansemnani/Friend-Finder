@@ -9,7 +9,7 @@ $(document).ready(function () {
       var q = "#q" + i;
       $(q).val('').trigger("chosen:updated");
     }
-    
+
   }
 
   $("#submit").on("click", function () {
@@ -29,8 +29,14 @@ $(document).ready(function () {
     $.post("/api/friends", newFriend)
     .then(function (data) {
       console.log(data);
+      $("#modalBody").empty();
       $("#Modal").modal('show');
-      $("#modalBody").html(data.name);
-    })
+      $("#modalBody").html("<h3> Name: " + data.name + "</h3>");
+      var img = $("<img>");
+      img.attr("src", data.photo);
+      img.attr("height", "300px");
+      img.attr("class", "text-center");
+      $("#modalBody").append(img);
+    });
   });
 });
