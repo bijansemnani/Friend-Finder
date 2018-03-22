@@ -1,3 +1,4 @@
+//The placeholder database
 var friends = [
   {
     name: "Bijan",
